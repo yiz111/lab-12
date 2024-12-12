@@ -1,0 +1,92 @@
+def recursive_print(n):
+    if n == 1:
+        print(1)
+    else:
+        recursive_print(n - 1)
+        print(n)
+
+# 示例调用
+recursive_print(5)
+
+
+def recursive_multiply(x, y):
+    if y == 1:
+        return x
+    else:
+        return x + recursive_multiply(x, y - 1)
+
+# 示例调用
+result = recursive_multiply(7, 4)
+print(result)  # 输出28
+
+
+def recursive_lines(n):
+    if n == 1:
+        print("*")
+    else:
+        recursive_lines(n - 1)
+        print("*" * n)
+
+# 示例调用
+recursive_lines(5)
+
+
+
+def find_largest(lst):
+    if len(lst) == 1:
+        return lst[0]
+    else:
+        max_of_rest = find_largest(lst[1:])
+        return lst[0] if lst[0] > max_of_rest else max_of_rest
+
+# 示例调用
+result = find_largest([3, 5, 2, 9, 1])
+print(result)  # 输出9
+
+
+
+
+def recursive_sum(lst):
+    if len(lst) == 0:
+        return 0
+    else:
+        return lst[0] + recursive_sum(lst[1:])
+
+# 示例调用
+result = recursive_sum([3, 5, 2, 9, 1])
+print(result)  # 输出20
+
+
+
+def sum_of_numbers(n):
+    if n == 1:
+        return 1
+    else:
+        return n + sum_of_numbers(n - 1)
+
+result = sum_of_numbers(50)
+print(result)
+
+
+
+def recursive_power(base, exponent):
+    if exponent == 0:
+        return 1
+    else:
+        return base * recursive_power(base, exponent - 1)
+
+result = recursive_power(2, 5)
+print(result)
+
+
+
+def ackermann(m, n):
+    if m == 0:
+        return n + 1
+    elif m > 0 and n == 0:
+        return ackermann(m - 1, 1)
+    elif m > 0 and n > 0:
+        return ackermann(m - 1, ackermann(m, n - 1))
+
+result = ackermann(3, 4)  # 测试使用小的 m 和 n 值
+print(result)
